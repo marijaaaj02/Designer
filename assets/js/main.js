@@ -265,7 +265,7 @@ function getSubjects(){
 $("#name").keyup(checkName);
 
 function checkName(){
-    let nameRegex=/^[A-Z][a-z]{2,}\s[A-Z][a-z]{2,}(\s[A-Z][a-z]{2,})?$/;
+    let nameRegex=/^[A-ZŽĐŠČĆ][a-zžđščć]{2,}\s[A-ZŽĐŠČĆ][a-zzžđščć]{2,}(\s[A-ZŽĐŠČĆ][a-zzžđščć]{2,})?$/;
     //ovde dodati srpske karaktere
 
     let nameValue=$("#name").val(); 
@@ -322,7 +322,7 @@ function checkMessage(){
     let message=$("#message").val().trim(); 
 
     
-    if(message.split(" ").length<5){
+    if(message.split(" ").length<10){
         $("#message").next().removeClass('d-none');
         return 1;
     }
