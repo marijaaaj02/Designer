@@ -266,16 +266,20 @@ $("#name").keyup(checkName);
 
 function checkName(){
     let nameRegex=/^[A-ZŽĐŠČĆ][a-zžđščć]{2,}\s[A-ZŽĐŠČĆ][a-zzžđščć]{2,}(\s[A-ZŽĐŠČĆ][a-zzžđščć]{2,})?$/;
-    //ovde dodati srpske karaktere
+    
 
     let nameValue=$("#name").val(); 
 
     if(nameRegex.test(nameValue)){
         $("#name").next().addClass('d-none');
+        $("#name").addClass("border-success");
+        $("#name").removeClass("border-danger");
         return 0;
     }
     else{
         $("#name").next().removeClass('d-none');
+        $("#name").removeClass("border-success");
+        $("#name").addClass("border-danger");
         return 1;
     }
 
@@ -291,10 +295,14 @@ function checkEmail(){
 
     if(emailRegex.test(emailValue)){
         $("#email").next().addClass('d-none');
+        $("#email").addClass("border-success");
+        $("#email").removeClass("border-danger");
         return 0;
     }
     else{
         $("#email").next().removeClass('d-none');
+        $("#email").removeClass("border-success");
+        $("#email").addClass("border-danger");
         return 1;
     }
 }
@@ -307,10 +315,14 @@ function checkSubject(){
     
     if(subjectValue!=""){
         $("#subject").next().addClass('d-none');
+        $("#subject").addClass("border-success");
+        $("#subject").removeClass("border-danger");
         return 0;
     }
     else{
         $("#subject").next().removeClass('d-none');
+        $("#subject").removeClass("border-success");
+        $("#subject").addClass("border-danger");
         return 1;
     }
     
@@ -324,10 +336,14 @@ function checkMessage(){
     
     if(message.split(" ").length<10){
         $("#message").next().removeClass('d-none');
+        $("#message").removeClass("border-success");
+        $("#message").addClass("border-danger");
         return 1;
     }
     else{
         $("#message").next().addClass('d-none');
+        $("#message").addClass("border-success");
+        $("#message").removeClass("border-danger");
         return 0;
     }
 }
@@ -380,6 +396,14 @@ function checkAll(){
         $("#terms").prop("checked",false);
         $("#subject").val("");
         $("#message").val("");
+
+        $("input[type='text']").removeClass("border-success");
+        $("#subject").removeClass("border-success");
+        $("#message").removeClass("border-success");
+
+        $("input[type='text']").removeClass("border-danger");
+        $("#subject").removeClass("border-danger");
+        $("#message").removeClass("border-danger");
     }
     else{
         console.log("Nije sve ok");
